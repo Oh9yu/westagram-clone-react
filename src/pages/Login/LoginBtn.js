@@ -4,10 +4,13 @@ import { useNavigate } from "react-router-dom";
 
 function FormInput(props) {
   const navigate = useNavigate();
+
   const [inputValue, setInputValue] = useState({
     userID: "",
     userPW: "",
   });
+
+  console.log(inputValue);
   const { userID, userPW } = inputValue;
 
   const idChk = userID.includes("@") && userID.length > 4;
@@ -16,13 +19,21 @@ function FormInput(props) {
   const loginChk = idChk && pwChk ? false : true;
 
   const onChange = (e) => {
+    const { name, value } = e.target;
+
     setInputValue({
-      ...inputValue, //{userID : '',userPW:''}
-      [e.target.name]: e.target.value,
+      ...inputValue,
+      [name]: value,
     });
+    console.log(inputValue);
   };
+
   return (
     <form className="login">
+      {/* {
+      Object.entries(inputValue).map(([key, value]) => <input type="text" name={key} value={value}></input>)
+    } */}
+
       <input
         type="text"
         name="userID"
