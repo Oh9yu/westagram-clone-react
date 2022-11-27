@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-// import CommentEle from "./CommentLi.js";
+import CommentEle from "./CommentLi.js";
 
 function CommentActive(props) {
   const [comment, setComment] = useState("");
@@ -23,17 +23,24 @@ function CommentActive(props) {
   const commentShow = commentList.map((e, i) => {
     // <CommentEle key={i} value={e}></CommentEle>;
     return (
-      <li key={i}>
-        {/* 로그인 사용자 명 */}
-        {e}
-        {/* <button onClick={deleteBtn}>삭제</button> */}
-        {/* span value값은 데이터 받아서 */}
-        <input type="checkbox" onClick={commentLikeCount} />
-        {/* 서버에 저장한 */}
-        <span key={i}>{commentLike}</span>
-        <span> 좋아요</span>
-        <button onClick={commentDelete}>삭제</button>
-      </li>
+      <CommentEle
+        key={i}
+        commentList={e}
+        likeResult={commentLike}
+        likeFunc={commentLikeCount}
+        deleteFunc={commentDelete}
+      ></CommentEle>
+      // <li key={i}>
+      //   {/* 로그인 사용자 명 */}
+      //   {e}
+      //   {/* <button onClick={deleteBtn}>삭제</button> */}
+      //   {/* span value값은 데이터 받아서 */}
+      //   <input type="checkbox" onClick={commentLikeCount} />
+      //   {/* 서버에 저장한 */}
+      //   <span key={i}>{commentLike}</span>
+      //   <span> 좋아요</span>
+      //   <button onClick={commentDelete}>삭제</button>
+      // </li>
     );
   });
 
