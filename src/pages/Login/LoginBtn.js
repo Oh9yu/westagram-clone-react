@@ -13,8 +13,8 @@ function FormInput(props) {
   console.log(inputValue);
   const { userID, userPW } = inputValue;
 
-  const idChk = userID.includes("@") && userID.length > 4;
-  const pwChk = userPW.length > 4;
+  const idChk = userID.includes("@") && userID.length > 4; // t f
+  const pwChk = userPW.length > 4; // t f
 
   const loginChk = idChk && pwChk ? false : true;
 
